@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/aihub" mode="merge"/>
+    <filter root="/content/aihub" mode="merge"/>
+    <filter root="/content/dam/aihub" mode="merge">
+        <exclude pattern="/content/dam/aihub(/.*)?"/>
+        <include pattern="/content/dam/aihub/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/aihub/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/aihub" mode="merge"/>
+</workspaceFilter>

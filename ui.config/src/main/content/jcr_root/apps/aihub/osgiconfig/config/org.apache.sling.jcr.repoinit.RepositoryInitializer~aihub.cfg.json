@@ -1,0 +1,7 @@
+{
+    "scripts": [
+        "create path (sling:OrderedFolder) /content/dam/aihub",
+        "create path (nt:unstructured) /content/dam/aihub/jcr:content",
+        "set properties on /content/dam/aihub/jcr:content\n  set cq:conf{String} to /conf/aihub\n  set jcr:title{String} to \"AI Hub\"\nend"
+    ]
+}
