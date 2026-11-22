@@ -1,0 +1,15 @@
+<div class="promo-card">
+    <div class="promo-card__image" data-sly-test="${properties.fileReference}">
+        <img src="${properties.fileReference}" alt="${properties.title}" class="promo-card__img">
+    </div>
+    <div class="promo-card__content">
+        <h3 class="promo-card__title">
+            ${properties.title}
+        </h3>
+    </div>
+    <div class="promo-card__image_arrow" data-sly-test="${properties.arrowIcon}">
+        <a href="${properties.ctaLink}" data-sly-test="${properties.ctaLink}">
+            <img src="${properties.arrowIcon}" alt="${properties.title}" class="promo-card__img__arrow">
+        </a>
+    </div>
+</div>

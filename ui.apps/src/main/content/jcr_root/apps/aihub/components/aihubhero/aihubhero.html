@@ -1,0 +1,20 @@
+<div class="promo-card">
+    <div class="promo-card__content">
+        <h3 class="promo-card__title">
+            ${properties.title}
+        </h3>
+        <p class="promo-card__description">
+            ${properties.description}
+        </p>
+        <a class="promo-card__cta"
+           href="${properties.ctaLink}"
+           data-sly-test="${properties.ctaText && properties.ctaLink}">
+            ${properties.ctaText}
+        </a>
+    </div>
+    <div class="promo-card__image" data-sly-test="${properties.fileReference}">
+        <img src="${properties.fileReference}"
+             alt="${properties.title}"
+             class="promo-card__img">
+    </div>
+</div>
