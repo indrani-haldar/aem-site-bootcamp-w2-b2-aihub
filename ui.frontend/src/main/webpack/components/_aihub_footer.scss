@@ -1,0 +1,64 @@
+#aihub-footer {
+    background: #0158D7;
+    color: #fff;
+    padding: 3rem 5%;
+    margin-top: 3rem;
+
+   .aem-Grid {
+        display: flex;
+        gap: 3rem;
+    }
+
+    .aem-GridColumn:first-child {
+        flex: 2;
+    }
+
+    .aem-GridColumn:nth-child(2) {
+        flex: 1;
+    }
+
+    .aem-GridColumn:nth-child(3) {
+        flex: 1;
+    }
+
+    .cmp-title {
+        &__text {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        &__link {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+
+    .cmp-text {
+        p {
+            margin: 0 0 0.75rem;
+            color: #fff;
+            line-height: 1.6;
+        }
+    }
+
+    .cmp-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        &__item {
+            margin-bottom: 0.75rem;
+        }
+
+        &__item-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #faf2f2;
+            }
+        }
+    }
+}

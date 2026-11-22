@@ -1,0 +1,49 @@
+.prompt-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 20px;
+    margin-bottom: 12px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    background: #fff;
+    text-decoration: none;
+
+    transition: all .3s ease;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        transform: translateY(-1px);
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-right: 16px;
+
+        img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+    }
+
+    &__content {
+        flex: 1;
+
+        font-size: 18px;
+        font-weight: 500;
+        color: #111827;
+    }
+
+    &__arrow {
+        font-size: 26px;
+        font-weight: 600;
+        color: #111827;
+    }
+}

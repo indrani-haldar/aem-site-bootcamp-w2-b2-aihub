@@ -1,0 +1,61 @@
+#aihub-featured-prompts {
+    .cmp-teaser {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        padding: 16px;
+        border: 1px solid #d9d9d9;
+        border-radius: 12px;
+        background: #fff;
+
+        transition: all 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .cmp-teaser__image {
+            flex: 0 0 56px;
+            order: 1;
+            margin-right: 20px;
+
+            .cmp-image {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .cmp-image__image {
+                width: 48px;
+                height: 48px;
+                object-fit: contain;
+                display: block;
+            }
+        }
+
+        .cmp-teaser__content {
+            flex: 1;
+            order:2;
+        }
+
+        .cmp-teaser__title {
+            margin: 0 0 4px;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: #111827;
+        }
+
+        .cmp-teaser__description {
+            margin: 0;
+
+            p {
+                margin: 0;
+                font-size: 15px;
+                line-height: 1.5;
+                color: #4b5563;
+            }
+        }
+    }
+}
