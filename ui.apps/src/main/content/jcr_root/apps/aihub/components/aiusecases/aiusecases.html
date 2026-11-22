@@ -1,0 +1,28 @@
+<sly data-sly-use.model="com.aihub.core.models.AIUseCasesModel"/>
+
+<div class="ai-tool-card">
+    <div class="ai-tool-card__icon">
+        <img
+            src="${model.image}"
+            alt="${model.title}">
+    </div>
+
+    <h3 class="ai-tool-card__title">
+        ${model.title}
+    </h3>
+
+    <div class="ai-tool-card__description">
+        ${model.description @ context='html'}
+    </div>
+
+    <div class="ai-tool-card__metadata">
+        <span class="ai-tool-card__category"
+              data-category="${model.category}"
+              data-sly-test="${model.category}">
+            ${model.category}
+        </span>
+        <span class="ai-tool-card__level" data-sly-test="${model.level}">
+            ${model.level}
+        </span>
+    </div>
+</div>

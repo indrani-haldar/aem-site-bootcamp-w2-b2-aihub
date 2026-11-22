@@ -1,6 +1,37 @@
-.cmp-tabs {}
-.cmp-tabs__tablist {}
-.cmp-tabs__tab {}
-.cmp-tabs__tab--active {}
-.cmp-tabs__tabpanel {}
-.cmp-tabs__tabpanel--active {}
+#tabs-style .cmp-tabs__tablist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+}
+
+#tabs-style .cmp-tabs__tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border: 1px solid #174ea6;
+    border-radius: 4px;
+    background: #fff;
+    color: #174ea6;
+    cursor: pointer;
+    font: inherit;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#tabs-style .cmp-tabs__tab:hover {
+    background: #e8f0fe;
+}
+
+#tabs-style .cmp-tabs__tab:focus-visible {
+    outline: 2px solid #174ea6;
+    outline-offset: 2px;
+}
+
+#tabs-style .cmp-tabs__tab--active {
+    border-color: #174ea6;
+    background: #174ea6;
+    color: #fff;
+}
