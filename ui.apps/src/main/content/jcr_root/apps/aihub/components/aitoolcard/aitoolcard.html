@@ -1,0 +1,21 @@
+<sly data-sly-use.model="com.aihub.core.models.AIToolCardModel"/>
+
+<div class="ai-tool-card" data-tool-id="${model.id}">
+    <div class="ai-tool-card__icon">
+        <img
+            src="${model.image}"
+            alt="${model.title}">
+    </div>
+
+    <h3 class="ai-tool-card__title">
+        ${model.title}
+    </h3>
+
+    <div class="ai-tool-card__description">
+        ${model.description @ context='html'}
+    </div>
+
+    <div class="ai-tool-card__category" data-category="${model.category}">
+        ${model.category}
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<sly data-sly-use.model="com.aihub.core.models.AIPromptLibraryModel"/>
+
+<div class="ai-tool-card">
+    <div class="ai-tool-card__icon">
+        <img
+            src="${model.image}"
+            alt="${model.title}">
+    </div>
+
+    <h3 class="ai-tool-card__title">
+        ${model.title}
+    </h3>
+
+    <div class="ai-tool-card__description">
+        ${model.description @ context='html'}
+    </div>
+
+    <div class="ai-tool-card__metadata">
+        <span class="ai-tool-card__category"
+              data-category="${model.category}"
+              data-sly-test="${model.category}">
+            ${model.category}
+        </span>
+        <span class="ai-tool-card__level" data-sly-test="${model.level}">
+            ${model.level}
+        </span>
+    </div>
+
+    <button class="ai-prompt-library__copy-button"
+            type="button"
+            data-copy-prompt
+            data-prompt-text="${model.promptText @ context='attribute'}"
+            data-sly-test="${model.promptText}">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M8 7V4a2 2 0 0 1 2-2h8l4 4v12a2 2 0 0 1-2 2h-2v-2h2V7h-5V4h-5v3H8Zm-4 2h11a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V11a2 2 0 0 1 2-2Zm0 2v10h11V11H4Z"/>
+        </svg>
+        <span data-copy-label aria-live="polite">Copy Prompt</span>
+    </button>
+</div>
