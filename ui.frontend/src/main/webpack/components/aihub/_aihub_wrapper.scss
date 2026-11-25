@@ -1,0 +1,17 @@
+#aihub-wrapper {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  #aihub-wrapper {
+    padding: 0 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  #aihub-wrapper {
+    padding: 0 1px;
+  }
+}

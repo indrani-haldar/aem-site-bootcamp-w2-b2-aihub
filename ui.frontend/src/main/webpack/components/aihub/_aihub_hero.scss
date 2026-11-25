@@ -103,3 +103,28 @@
         }
     }
 }
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .promo-card {
+        padding: 1rem;
+        gap: 1.25rem;
+
+        &__img {
+            max-width: 240px;
+        }
+
+        &__title {
+            font-size: 1.4rem;
+        }
+
+        &__description {
+            font-size: 1rem;
+        }
+
+        &__cta {
+            display: block;
+            padding: 0.75rem 1.25rem;
+        }
+    }
+}

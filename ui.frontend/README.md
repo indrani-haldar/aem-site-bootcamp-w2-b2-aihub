@@ -38,6 +38,12 @@ The ui.frontend module compiles the code under the `ui.frontend/src` folder and 
 
 ### JavaScript
 
+Home teasers inside `#aihub-home-teaser` use the same detail-page query parameters
+as AI tool cards. Each teaser supplies its ID, title, description and image; its
+description also supplies the category. Existing teaser links are updated, and
+unlinked teasers receive a keyboard-accessible native link. No manual detail-page
+link is required. This enhancement is disabled inside the AEM author editor.
+
 * **Optimization** - for production builds, all JS that is not being used or
 called is removed.
 

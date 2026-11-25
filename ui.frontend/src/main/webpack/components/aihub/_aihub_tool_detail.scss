@@ -1,0 +1,388 @@
+@mixin aihub-section-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  object-fit: contain;
+  display: block;
+}
+
+#aihub-wrapper {
+  .cmp-aitoolhero {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    padding: 24px;
+
+    &__image {
+      flex-shrink: 0;
+
+      img {
+        height: 220px;
+        width: auto;
+        max-width: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+      }
+    }
+
+    &__content {
+      flex: 1;
+    }
+
+    &__title {
+      margin: 0;
+      font-size: clamp(1.6rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: #000;
+    }
+
+    &__category {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    &__description {
+      margin: 16px 0 24px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    &__button {
+      display: inline-block;
+      background: #0057d9;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+
+      &:hover {
+        background: #0042a8;
+      }
+    }
+  }
+
+  // The IDs are duplicated in authored content, so the class alias is the
+  // preferred hook (set it as the container's CSS class).
+  #TextBoxCapabilitiesContainer,
+  .aihub-tool-detail__card {
+    border-right: 1px solid #d1d5db;
+    padding: 1rem;
+    margin: 1rem;
+
+    .textimage {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+
+      &-text p {
+        margin: 0;
+        font-size: clamp(1.25rem, 2.5vw, 2rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: #111827;
+      }
+    }
+
+    .textimage img,
+    .cmp-image img {
+      @include aihub-section-icon;
+    }
+  }
+
+  .aem-GridColumn:last-child > #TextBoxCapabilitiesContainer,
+  .aem-GridColumn:last-child > .aihub-tool-detail__card {
+    border-right: none;
+  }
+
+  #TextBoxCapabilities,
+  .aihub-tool-detail__card .cmp-text {
+    p {
+      margin: 0 0 16px;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #111827;
+    }
+  }
+
+  .cmp-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cmp-accordion__item {
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .cmp-accordion__header {
+    margin: 0;
+  }
+
+  .cmp-accordion__button {
+    width: 100%;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 20px; // reduced
+    text-align: left;
+  }
+
+  .cmp-accordion__title {
+    font-size: 18px; // reduced
+    font-weight: 500; // less bold
+    line-height: 1.4;
+    color: #111827;
+  }
+
+  .cmp-accordion__icon {
+    font-size: 24px;
+    color: #111827;
+
+    &::before {
+      content: "›";
+    }
+  }
+
+  .cmp-accordion__button--expanded {
+    .cmp-accordion__icon::before {
+      content: "⌄";
+    }
+  }
+
+  .cmp-accordion__panel {
+    padding: 0 20px 16px;
+    font-size: 16px;
+    color: #4b5563;
+  }
+
+  .cmp-accordion__panel--hidden {
+    display: none;
+  }
+
+  #responsible-ai {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    background-color: #f3f7fc;
+    border: 1px solid #dbe5f1;
+    border-radius: 12px;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 2rem;
+
+    .textimage {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    // Shield icon
+    .textimage img,
+    .cmp-image img {
+      @include aihub-section-icon;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #111827;
+    }
+
+    .text p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #374151;
+    }
+  }
+
+  .cmp-breadcrumb {
+    margin: 1rem;
+    padding: 1rem;
+
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
+
+    &__list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+
+      &:not(:last-child)::after {
+        content: ">";
+        margin-left: 8px;
+        color: #777;
+        font-weight: 400;
+      }
+    }
+
+    &__item-link {
+      color: #555555;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #000000;
+        text-decoration: underline;
+      }
+    }
+
+    &__item--active {
+      .cmp-breadcrumb__item-link {
+        color: #000000;
+        font-weight: 700;
+        pointer-events: none;
+        text-decoration: none;
+        cursor: default;
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    .cmp-aitoolhero {
+      gap: 24px;
+    }
+
+    #TextBoxCapabilitiesContainer,
+    .aihub-tool-detail__card {
+      margin: 0.5rem;
+      padding: 0.75rem;
+    }
+
+    #responsible-ai {
+      margin: 1.5rem 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cmp-aitoolhero {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 20px;
+      padding: 16px;
+
+      &__image img {
+        width: 100%;
+        height: auto;
+        max-height: 220px;
+        object-fit: contain;
+      }
+    }
+
+    // Stack the three detail cards (columns that directly wrap a card)
+    .aem-GridColumn:has(> #TextBoxCapabilitiesContainer),
+    .aem-GridColumn:has(> .aihub-tool-detail__card) {
+      float: none !important;
+      clear: both;
+      width: 100% !important;
+      margin-left: 0 !important;
+      box-sizing: border-box;
+    }
+
+    #TextBoxCapabilitiesContainer,
+    .aihub-tool-detail__card {
+      margin: 0 0 1rem;
+      border-right: none;
+      border-bottom: 1px solid #d1d5db;
+    }
+
+    .aem-GridColumn:last-child > #TextBoxCapabilitiesContainer,
+    .aem-GridColumn:last-child > .aihub-tool-detail__card {
+      border-bottom: none;
+    }
+
+    #responsible-ai {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 1rem;
+      padding: 1rem;
+
+      .text h3 {
+        font-size: 22px;
+      }
+
+      .text p {
+        font-size: 16px;
+      }
+    }
+
+    .cmp-breadcrumb {
+      margin: 0.5rem;
+      padding: 0.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cmp-aitoolhero {
+      padding: 12px;
+
+      &__button {
+        display: block;
+        text-align: center;
+      }
+    }
+
+    #TextBoxCapabilitiesContainer,
+    .aihub-tool-detail__card {
+      .textimage {
+        margin-bottom: 16px;
+      }
+    }
+
+    #TextBoxCapabilitiesContainer p,
+    .aihub-tool-detail__card .cmp-text p {
+      font-size: 16px;
+    }
+
+    .cmp-accordion__button {
+      padding: 12px 16px;
+    }
+
+    .cmp-accordion__title {
+      font-size: 16px;
+    }
+
+    .cmp-accordion__panel {
+      padding: 0 16px 12px;
+      font-size: 14px;
+    }
+  }
+}

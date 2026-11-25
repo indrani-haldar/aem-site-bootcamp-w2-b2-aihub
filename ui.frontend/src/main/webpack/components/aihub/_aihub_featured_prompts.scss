@@ -1,4 +1,6 @@
 #aihub-featured-prompts {
+    padding: 0 1rem;
+    
     .cmp-teaser {
         display: flex;
         align-items: center;
@@ -55,6 +57,58 @@
                 font-size: 15px;
                 line-height: 1.5;
                 color: #4b5563;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #aihub-featured-prompts {
+        .cmp-teaser {
+            padding: 14px;
+            gap: 12px;
+
+            .cmp-teaser__image {
+                margin-right: 12px;
+            }
+
+            .cmp-teaser__title {
+                font-size: 18px;
+            }
+
+            .cmp-teaser__description p {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    #aihub-featured-prompts {
+        padding: 0 0.75rem;
+
+        .cmp-teaser {
+            padding: 12px;
+            gap: 10px;
+            border-radius: 10px;
+
+            .cmp-teaser__image {
+                flex: 0 0 40px;
+                margin-right: 8px;
+
+                .cmp-image__image {
+                    width: 36px;
+                    height: 36px;
+                }
+            }
+
+            .cmp-teaser__title {
+                font-size: 16px;
+            }
+
+            .cmp-teaser__description p {
+                font-size: 13px;
+                line-height: 1.4;
             }
         }
     }
