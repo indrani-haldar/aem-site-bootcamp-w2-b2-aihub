@@ -1,0 +1,129 @@
+.aihubresponsibleai {
+  padding: 0 1rem;
+
+  .responsible-ai {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #dae0ec;
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 120px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    &__image {
+      flex-shrink: 0;
+
+      .responsible-ai__img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+      }
+    }
+
+    &__content {
+      flex: 1;
+      padding: 0 20px;
+
+      .responsible-ai__title {
+        margin: 0 0 8px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #111827;
+      }
+
+      .responsible-ai__description {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #374151;
+      }
+    }
+
+    &__image__arrow {
+      flex-shrink: 0;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        text-decoration: none;
+      }
+
+      .responsible-ai__img__arrow {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .aihubresponsibleai {
+    .responsible-ai {
+      padding: 16px;
+      min-height: auto;
+
+      &__content {
+        padding: 0 15px;
+
+        .responsible-ai__title {
+          font-size: 20px;
+        }
+
+        .responsible-ai__description {
+          font-size: 14px;
+        }
+      }
+
+      &__image {
+        .responsible-ai__img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .aihubresponsibleai {
+    .responsible-ai {
+      padding: 15px;
+
+      &__content {
+        padding: 0 12px;
+
+        .responsible-ai__title {
+          font-size: 18px;
+          margin-bottom: 6px;
+        }
+
+        .responsible-ai__description {
+          font-size: 13px;
+          line-height: 1.4;
+        }
+      }
+
+      &__image {
+        .responsible-ai__img {
+          width: 36px;
+          height: 36px;
+        }
+      }
+
+      &__image__arrow {
+        .responsible-ai__img__arrow {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+}

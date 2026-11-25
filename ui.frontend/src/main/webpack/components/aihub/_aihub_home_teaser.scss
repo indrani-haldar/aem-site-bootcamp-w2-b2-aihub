@@ -1,0 +1,130 @@
+#aihub-home-teaser {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+
+  > .teaser {
+    flex: 1 1 calc(33.333% - 1rem);
+    min-width: 220px;
+  }
+
+  .cmp-teaser {
+    background: #ffffff;
+    border: 1px solid #dbe3ef;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &__image {
+      order: 1;
+      text-align: center;
+      margin-bottom: 1rem;
+      padding: 1.5rem;
+      background-color: #d0cfcf;
+      border-top-left-radius: 9pt;
+      border-top-right-radius: 9pt;
+
+      .cmp-image__image {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+      }
+    }
+
+    &__content {
+      order: 2;
+      text-align: center;
+      padding: 0 0 1rem;
+    }
+
+    &__title {
+      margin: 0 0 0.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    &__description {
+      color: #6b7280;
+      font-size: 0.95rem;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  #aihub-home-teaser {
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    > .teaser {
+      flex: 1 1 calc(50% - 1rem);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #aihub-home-teaser {
+    flex-direction: column;
+
+    > .teaser {
+      flex: 1 1 100%;
+    }
+
+    .cmp-teaser {
+      &__image {
+        .cmp-image__image {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  #aihub-home-teaser {
+    padding: 0 0.75rem;
+
+    > .teaser {
+      min-width: 0;
+    }
+
+    .cmp-teaser {
+      &__image {
+        padding: 1rem;
+
+        .cmp-image__image {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      &__title {
+        font-size: 1rem;
+      }
+
+      &__description {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

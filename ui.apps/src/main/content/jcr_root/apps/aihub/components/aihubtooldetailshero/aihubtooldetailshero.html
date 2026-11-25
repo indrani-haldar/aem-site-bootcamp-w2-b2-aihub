@@ -1,0 +1,38 @@
+<div class="cmp-aitoolhero">
+
+    <div class="cmp-aitoolhero__image">
+        <img
+            src="${properties.toolImage}"
+            alt="${properties.toolName}" />
+    </div>
+
+    <div class="cmp-aitoolhero__content">
+
+        <h1 class="cmp-aitoolhero__title">
+            ${properties.toolName}
+        </h1>
+
+        <span
+            class="cmp-aitoolhero__category"
+            data-sly-test="${properties.category}">
+            ${properties.category}
+        </span>
+
+        <p
+            class="cmp-aitoolhero__description"
+            data-sly-test="${properties.description}">
+            ${properties.description}
+        </p>
+
+        <a
+            class="cmp-aitoolhero__button"
+            href="${properties.ctaLink @ extension='html'}"
+            data-sly-test="${properties.ctaLabel}">
+
+            ${properties.ctaLabel}
+
+        </a>
+
+    </div>
+
+</div>

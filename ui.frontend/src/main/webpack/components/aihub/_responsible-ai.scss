@@ -1,0 +1,547 @@
+// =============================================================================
+// Responsible AI page
+// Markup: Core Components (title, text, image, accordion) nested in containers,
+// targeted through the authored container IDs under #responsible-ai-page.
+// All tokens are prefixed with `rai-` because every partial is globally imported.
+// =============================================================================
+
+//== Design tokens ------------------------------------------------------------
+
+// Colors
+$rai-color-primary: #1f4fbf;
+$rai-color-primary-light: #eaf0fb;
+$rai-color-primary-soft: #dfe8f8;
+$rai-color-text: #111827;
+$rai-color-text-muted: #374151;
+$rai-color-text-subtle: #6b7280;
+$rai-color-surface: #ffffff;
+$rai-color-surface-alt: #f3f5f9;
+$rai-color-border: #e1e5ec;
+$rai-color-border-strong: #cfd6e2;
+
+// Typography
+$rai-font-family:
+  "Inter", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$rai-font-size-xs: 14px;
+$rai-font-size-sm: 15px;
+$rai-font-size-base: 16px;
+$rai-font-size-md: 18px;
+$rai-font-size-lg: 22px;
+$rai-font-size-xl: 40px;
+$rai-font-weight-regular: 400;
+$rai-font-weight-medium: 500;
+$rai-font-weight-bold: 700;
+$rai-font-weight-black: 800;
+$rai-line-height-tight: 1.2;
+$rai-line-height-base: 1.5;
+
+// Spacing
+$rai-space-1: 4px;
+$rai-space-2: 8px;
+$rai-space-3: 12px;
+$rai-space-4: 16px;
+$rai-space-5: 20px;
+$rai-space-6: 24px;
+$rai-space-8: 32px;
+$rai-space-10: 40px;
+
+// Shape & elevation
+$rai-radius-sm: 8px;
+$rai-radius-md: 12px;
+$rai-radius-lg: 16px;
+$rai-shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.06);
+$rai-shadow-md: 0 4px 14px rgba(17, 24, 39, 0.08);
+$rai-transition: all 0.2s ease-in-out;
+
+// Icons
+$rai-icon-size-sm: 24px;
+$rai-icon-size-md: 28px;
+$rai-icon-size-lg: 44px;
+
+// Breakpoints
+$rai-bp-tablet: 1024px;
+$rai-bp-mobile: 768px;
+$rai-bp-small: 480px;
+
+//== Mixins -------------------------------------------------------------------
+
+@mixin rai-respond($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin rai-card($background: $rai-color-surface) {
+  background: $background;
+  border: 1px solid $rai-color-border;
+  border-radius: $rai-radius-md;
+  box-shadow: $rai-shadow-sm;
+  transition: $rai-transition;
+}
+
+@mixin rai-card-hover {
+  &:hover {
+    box-shadow: $rai-shadow-md;
+    border-color: $rai-color-border-strong;
+  }
+}
+
+@mixin rai-heading($size: $rai-font-size-lg) {
+  margin: 0;
+  font-family: $rai-font-family;
+  font-size: $size;
+  font-weight: $rai-font-weight-bold;
+  line-height: $rai-line-height-tight;
+  color: $rai-color-text;
+}
+
+@mixin rai-body-text(
+  $size: $rai-font-size-base,
+  $color: $rai-color-text-muted
+) {
+  margin: 0;
+  font-family: $rai-font-family;
+  font-size: $size;
+  line-height: $rai-line-height-base;
+  color: $color;
+}
+
+@mixin rai-icon($size) {
+  .cmp-image {
+    margin: 0;
+  }
+
+  .cmp-image__image {
+    display: block;
+    width: $size;
+    height: $size;
+    object-fit: contain;
+  }
+}
+
+// CSS-only chevron drawn with borders; $rotate: 45deg = down, -45deg = right
+@mixin rai-chevron($size: 8px, $rotate: 45deg, $color: $rai-color-text) {
+  content: "";
+  display: inline-block;
+  width: $size;
+  height: $size;
+  border-right: 2px solid $color;
+  border-bottom: 2px solid $color;
+  transform: rotate($rotate);
+  transition: transform 0.2s ease-in-out;
+}
+
+// Hides empty paragraph-system placeholders outside the author edit layer
+@mixin rai-hide-newpar {
+  html:not(.aem-AuthorLayer-Edit) & > .newpar {
+    display: none;
+  }
+}
+
+// Neutralises the float-based AEM responsive grid so a container can use flex/grid
+@mixin rai-reset-aem-grid {
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  > .aem-GridColumn {
+    float: none;
+    width: auto;
+    margin: 0;
+  }
+
+  @include rai-hide-newpar;
+}
+
+// Icon + title row used by every section header
+@mixin rai-section-header(
+  $icon-size: $rai-icon-size-md,
+  $title-size: $rai-font-size-lg
+) {
+  > .aem-Grid {
+    @include rai-reset-aem-grid;
+    display: flex;
+    align-items: center;
+    gap: $rai-space-3;
+  }
+
+  .image {
+    flex-shrink: 0;
+    @include rai-icon($icon-size);
+  }
+}
+
+//== Page ---------------------------------------------------------------------
+
+#responsible-ai-page {
+  font-family: $rai-font-family;
+  color: $rai-color-text;
+  padding: $rai-space-6 0 $rai-space-10;
+
+  p,
+  ul {
+    margin: 0;
+  }
+
+  //-- Hero -------------------------------------------------------------------
+
+  #hero-section {
+    margin-bottom: $rai-space-8;
+
+    .cmp-title__text {
+      letter-spacing: -0.5px;
+      margin-bottom: $rai-space-2;
+    }
+  }
+
+  //-- Our principles + Before using AI ---------------------------------------
+
+  #principles-section {
+    margin-bottom: $rai-space-8;
+  }
+
+  #principles-header {
+    padding-right: $rai-space-8;
+    border-right: 1px solid $rai-color-border;
+
+    // Stack the header and the card group full width inside the left column
+    > .aem-Grid > .aem-GridColumn {
+      float: none;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  #principles-header-content {
+    @include rai-section-header;
+    margin-bottom: $rai-space-5;
+  }
+
+  #principles-card-group > .aem-Grid {
+    @include rai-reset-aem-grid;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: $rai-space-4;
+  }
+
+  [role="Principle Card"] {
+    @include rai-card($rai-color-surface-alt);
+    @include rai-card-hover;
+    @include rai-hide-newpar;
+    height: 100%;
+    box-sizing: border-box;
+    padding: $rai-space-5 $rai-space-3;
+
+    &,
+    > .aem-Grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: $rai-space-3;
+      text-align: center;
+    }
+
+    > .aem-Grid {
+      @include rai-reset-aem-grid;
+      width: 100%;
+      height: 100%;
+
+      > .aem-GridColumn {
+        width: 100%;
+      }
+    }
+
+    .image {
+      @include rai-icon($rai-icon-size-lg);
+
+      .cmp-image__image {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  #before-using-ai-section {
+    @include rai-card($rai-color-primary-light);
+    margin-left: $rai-space-8;
+    overflow: hidden;
+  }
+
+  #before-using-ai-header {
+    @include rai-section-header($rai-icon-size-sm, $rai-font-size-md);
+    background: $rai-color-primary-soft;
+    padding: $rai-space-3 $rai-space-5;
+  }
+
+  #before-using-ai-checklist {
+    padding: $rai-space-4 $rai-space-5 $rai-space-5;
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      @include rai-body-text($rai-font-size-base, $rai-color-text);
+      position: relative;
+      padding-left: $rai-space-8;
+
+      & + li {
+        margin-top: $rai-space-2;
+      }
+
+      // Check mark
+      &::before {
+        content: "";
+        position: absolute;
+        left: $rai-space-1;
+        top: 3px;
+        width: 6px;
+        height: 12px;
+        border-right: 2px solid $rai-color-text;
+        border-bottom: 2px solid $rai-color-text;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  //-- Privacy guidance + FAQ -------------------------------------------------
+
+  #privacy-guidance-section {
+    @include rai-card;
+    @include rai-card-hover;
+    margin-right: $rai-space-4;
+    padding: $rai-space-5 $rai-space-6;
+
+    // Flatten the header wrappers so icon, title and accordion share one grid
+    > .aem-Grid {
+      @include rai-reset-aem-grid;
+      display: grid;
+      grid-template-columns: $rai-icon-size-lg minmax(0, 1fr);
+      column-gap: $rai-space-4;
+      row-gap: $rai-space-1;
+      align-items: center;
+    }
+
+    > .aem-Grid > .aem-GridColumn:first-child,
+    #privacy-guidance-header,
+    #privacy-guidance-header > .aem-Grid {
+      display: contents;
+    }
+
+    #privacy-guidance-header > .aem-Grid {
+      @include rai-reset-aem-grid;
+    }
+
+    .image {
+      grid-row: 1 / span 2;
+      align-self: center;
+      @include rai-icon($rai-icon-size-lg);
+    }
+
+    .title,
+    .accordion {
+      grid-column: 2;
+    }
+
+    .cmp-accordion__button {
+      padding: 0;
+      gap: $rai-space-4;
+    }
+
+    .cmp-accordion__title {
+      @include rai-body-text($rai-font-size-sm, $rai-color-text-muted);
+    }
+
+    .cmp-accordion__icon::after {
+      @include rai-chevron(9px, -45deg);
+    }
+
+    .cmp-accordion__button--expanded .cmp-accordion__icon::after {
+      transform: rotate(45deg);
+    }
+
+    .cmp-accordion__panel {
+      padding: $rai-space-3 0 0;
+
+      .aem-GridColumn {
+        width: 100%;
+      }
+    }
+  }
+
+  #faq-section {
+    margin-left: $rai-space-4;
+  }
+
+  #faq-header {
+    @include rai-section-header($rai-icon-size-sm, $rai-font-size-lg);
+    margin-bottom: $rai-space-3;
+  }
+
+  #faq-accordion {
+    .cmp-accordion__item {
+      @include rai-card;
+      @include rai-card-hover;
+
+      & + .cmp-accordion__item {
+        margin-top: $rai-space-2;
+      }
+    }
+
+    .cmp-accordion__button {
+      padding: $rai-space-3 $rai-space-5;
+    }
+
+    .cmp-accordion__title {
+      @include rai-body-text($rai-font-size-base, $rai-color-text);
+    }
+
+    .cmp-accordion__icon::after {
+      @include rai-chevron(7px, 45deg);
+      margin-top: -4px;
+    }
+
+    .cmp-accordion__button--expanded .cmp-accordion__icon::after {
+      transform: rotate(-135deg);
+      margin-top: 4px;
+    }
+
+    .cmp-accordion__panel {
+      padding: 0 $rai-space-5 $rai-space-4;
+
+      p {
+        @include rai-body-text($rai-font-size-sm, $rai-color-text-muted);
+      }
+    }
+  }
+
+  //-- Shared accordion reset -------------------------------------------------
+
+  .cmp-accordion__header {
+    margin: 0;
+  }
+
+  .cmp-accordion__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+
+    &:focus-visible {
+      outline: 2px solid $rai-color-primary;
+      outline-offset: 2px;
+      border-radius: $rai-radius-sm;
+    }
+  }
+
+  .cmp-accordion__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: $rai-icon-size-sm;
+    height: $rai-icon-size-sm;
+  }
+
+  // Drop the glyph arrow inherited from #aihub-wrapper (collapsed and expanded);
+  // only the ::after chevron is used
+  .cmp-accordion__button .cmp-accordion__icon::before,
+  .cmp-accordion__button.cmp-accordion__button--expanded
+    .cmp-accordion__icon::before {
+    content: none;
+    display: none;
+  }
+
+  .cmp-accordion__panel--hidden {
+    display: none;
+  }
+
+  //-- Responsive -------------------------------------------------------------
+
+  @include rai-respond($rai-bp-tablet) {
+    #principles-header {
+      padding-right: $rai-space-5;
+    }
+
+    #before-using-ai-section {
+      margin-left: $rai-space-5;
+    }
+
+    [role="Principle Card"] {
+      padding: $rai-space-4 $rai-space-2;
+    }
+  }
+
+  @include rai-respond($rai-bp-mobile) {
+    #principles-header {
+      padding-right: 0;
+      padding-bottom: $rai-space-6;
+      border-right: 0;
+      border-bottom: 1px solid $rai-color-border;
+    }
+
+    // Grid columns become full width on phones
+    #principles-section > .aem-Grid > .aem-GridColumn,
+    #guidance-faq-section > .aem-Grid > .aem-GridColumn {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    #before-using-ai-section {
+      margin: $rai-space-6 0 0;
+    }
+
+    #privacy-guidance-section {
+      margin: 0 0 $rai-space-6;
+    }
+
+    #faq-section {
+      margin-left: 0;
+    }
+  }
+
+  @include rai-respond($rai-bp-small) {
+    #principles-card-group > .aem-Grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    [role="Principle Card"] {
+      &,
+      > .aem-Grid {
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+      }
+
+      > .aem-Grid > .aem-GridColumn {
+        width: auto;
+      }
+
+      .image .cmp-image__image {
+        width: $rai-icon-size-md;
+        height: $rai-icon-size-md;
+      }
+    }
+
+    #privacy-guidance-section {
+      padding: $rai-space-4;
+
+      > .aem-Grid {
+        grid-template-columns: $rai-icon-size-md minmax(0, 1fr);
+        column-gap: $rai-space-3;
+      }
+
+      .image .cmp-image__image {
+        width: $rai-icon-size-md;
+        height: $rai-icon-size-md;
+      }
+    }
+  }
+}

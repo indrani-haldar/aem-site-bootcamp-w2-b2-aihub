@@ -1,0 +1,106 @@
+#aihub-footer {
+  background: #0158d7;
+  color: #fff;
+  margin-top: 1rem;
+
+  .aem-Grid {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .aem-GridColumn:first-child {
+    flex: 2;
+  }
+
+  .aem-GridColumn:nth-child(2) {
+    flex: 1;
+  }
+
+  .aem-GridColumn:nth-child(3) {
+    flex: 1;
+  }
+
+  .cmp-title {
+    &__text {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    &__link {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .cmp-text {
+    p {
+      margin: 0 0 0.75rem;
+      color: #fff;
+      line-height: 1.6;
+    }
+  }
+
+  .cmp-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+      margin-bottom: 0.75rem;
+    }
+
+    &__item-link {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #faf2f2;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  #aihub-footer {
+    padding: 2.5rem 4%;
+
+    .aem-Grid {
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .aem-GridColumn:first-child {
+      flex: 1 1 100%;
+    }
+
+    .aem-GridColumn:nth-child(2),
+    .aem-GridColumn:nth-child(3) {
+      flex: 1 1 calc(50% - 1rem);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  #aihub-footer {
+    padding: 2rem 5%;
+    margin-top: 2rem;
+
+    .aem-Grid {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .aem-GridColumn:first-child,
+    .aem-GridColumn:nth-child(2),
+    .aem-GridColumn:nth-child(3) {
+      flex: 1 1 auto;
+      width: 100%;
+    }
+
+    .cmp-title__text {
+      font-size: 1.1rem;
+    }
+  }
+}

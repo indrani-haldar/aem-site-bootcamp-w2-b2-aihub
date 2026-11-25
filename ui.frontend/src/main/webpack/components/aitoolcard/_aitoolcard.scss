@@ -1,0 +1,139 @@
+.ai-tool-card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 204px;
+  min-height: 280px;
+  padding: 14px 18px 12px;
+  background: #f4f6f9;
+  border: 1px solid #d5d9df;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.ai-tool-card__icon {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.ai-tool-card__icon img {
+  width: 100px;
+  height: 100px;
+  max-width: 100%;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.ai-tool-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #17191c;
+  margin: 0 0 7px;
+  line-height: 1.15;
+}
+
+.ai-tool-card__description {
+  font-size: 14px;
+  line-height: 1.35;
+  color: #34383d;
+  margin: 0 0 10px;
+}
+
+.ai-tool-card__category {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 5px 12px;
+  background: #dbeafe;
+  color: #174ea6;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-top: auto;
+}
+
+.ai-tool-card__category[data-category="Content"] {
+  background: #eadcff;
+  color: #5b21b6;
+}
+
+.ai-tool-card__category[data-category="Data"] {
+  background: #d9f0e2;
+  color: #17653a;
+}
+
+.ai-tool-card__metadata {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.ai-tool-card__metadata .ai-tool-card__category,
+.ai-tool-card__metadata .ai-tool-card__level {
+  align-self: auto;
+  margin: 0;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.ai-tool-card__level {
+  flex-shrink: 0;
+  background: #fff0c2;
+  color: #745600;
+}
+
+.ai-prompt-library__copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 30px;
+  margin-top: 10px;
+  padding: 5px 8px;
+  border: 1px solid #d5d9df;
+  border-radius: 6px;
+  background: #fff;
+  color: #282c31;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ai-prompt-library__copy-button:hover {
+  background: #f4f6f9;
+}
+
+.ai-prompt-library__copy-button:focus-visible {
+  outline: 2px solid #174ea6;
+  outline-offset: 2px;
+}
+
+.ai-prompt-library__copy-button svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+@media (max-width: 600px) {
+  .ai-tool-card {
+    max-width: none;
+    min-height: 0;
+    margin-bottom: 16px;
+    padding: 16px;
+  }
+}
+
+.aitoolcard,
+.aiusecases,
+.aipromptlibrary {
+  margin-bottom: 16px;
+}

@@ -1,0 +1,107 @@
+.aihubpromptitem {
+    margin-bottom: 12px;
+    padding: 0 1rem;
+
+    .prompt-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 16px 20px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        min-height: 72px;
+
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+            border-color: #0057d8;
+        }
+
+        &__image {
+            flex-shrink: 0;
+
+            img {
+                width: 32px;
+                height: 32px;
+                object-fit: contain;
+            }
+        }
+
+        &__content {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        &__title {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: #1f2937;
+            line-height: 1.4;
+        }
+
+        &__image__arrow {
+            flex-shrink: 0;
+
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+            }
+
+            img {
+                width: 18px;
+                height: 18px;
+                object-fit: contain;
+                transition: transform 0.3s ease;
+            }
+        }
+
+        &:hover {
+            .prompt-item__image__arrow img {
+                transform: translateX(4px);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+
+    .prompt-item {
+        padding: 14px 16px;
+
+        &__image img {
+            width: 24px;
+            height: 24px;
+        }
+
+        &__content {
+            padding: 0 12px;
+        }
+
+        &__title {
+            font-size: 15px;
+        }
+
+        &__image__arrow img {
+            width: 14px;
+            height: 14px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+
+    .prompt-item {
+        min-height: 60px;
+        padding: 12px;
+    }
+
+    .prompt-item__title {
+        font-size: 14px;
+    }
+}

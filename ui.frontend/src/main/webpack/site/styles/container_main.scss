@@ -4,3 +4,19 @@
 main.container {
     padding: .5em 1em;
 }
+
+// Stack side-by-side grid columns on tablet/mobile instead of shrinking content
+@media (max-width: 768px) {
+    main.container {
+        overflow-x: hidden;
+
+        .aem-Grid > .aem-GridColumn {
+            float: none !important;
+            clear: both;
+            width: 100% !important;
+            margin-left: 0 !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+    }
+}
